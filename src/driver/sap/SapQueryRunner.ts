@@ -91,7 +91,7 @@ export class SapQueryRunner extends BaseQueryRunner implements QueryRunner {
             return this.driver.master.release(this.databaseConnection);
         }
 
-        return Promise.resolve();        
+        return Promise.resolve();
     }
 
     /**
@@ -1823,7 +1823,7 @@ export class SapQueryRunner extends BaseQueryRunner implements QueryRunner {
         let indexType = "";
         if (index.isUnique) {
             indexType += "UNIQUE ";
-        } 
+        }
         if (index.isFulltext) {
             indexType += "FULLTEXT ";
         }

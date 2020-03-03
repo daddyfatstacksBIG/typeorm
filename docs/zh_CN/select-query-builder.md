@@ -244,7 +244,7 @@ SELECT ... FROM users user WHERE user.name = 'Timber'
 
 看到了吧，我们使用了在创建查询构建器时分配的`user`别名来使用 users 表。
 
-一个查询构建器不限于一个别名，它们可以有多个别名。每个选择都可以有自己的别名，你
+一个查询构建器不限于一个别名，它们可以有多个别名。每个选择都可以有自己的别名，�
 可以选择多个有自己别名的表，你可以使用自己的别名连接多个表。你也可以使用这些别名
 来访问选择的表（或正在选择的数据）。
 
@@ -560,7 +560,7 @@ const user = await createQueryBuilder("user")
 }
 ```
 
-你可以看到`leftJoinAndSelect`自动加载了所有 Timber 的 photos。第一个参数是你要加
+你可以看到`leftJoinAndSelect`自动加载了所有 Timber 的 photos。第一个参数是你要�
 载的关系，第二个参数是你为此关系的表分配的别名。你可以在查询构建器中的任何位置使
 用此别名。例如，让我们获得所有未删除的 Timber 的 photos。
 

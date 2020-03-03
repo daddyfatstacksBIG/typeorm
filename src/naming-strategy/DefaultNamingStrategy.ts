@@ -29,7 +29,7 @@ export class DefaultNamingStrategy implements NamingStrategyInterface {
 
     columnName(propertyName: string, customName: string, embeddedPrefixes: string[]): string {
         const name = customName || propertyName;
-        
+
         if (embeddedPrefixes.length)
             return camelCase(embeddedPrefixes.join("_")) + titleCase(name);
 

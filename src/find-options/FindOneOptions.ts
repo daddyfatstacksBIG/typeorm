@@ -44,7 +44,7 @@ export interface FindOneOptions<Entity = any> {
 
     /**
      * Indicates if soft-deleted rows should be included in entity result.
-     */    
+     */
     withDeleted?: boolean;
 
     /**

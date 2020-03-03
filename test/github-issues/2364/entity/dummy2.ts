@@ -13,4 +13,3 @@ export class Dummy2 {
     @Column({ default: "name" })
     name: string;
 }
-

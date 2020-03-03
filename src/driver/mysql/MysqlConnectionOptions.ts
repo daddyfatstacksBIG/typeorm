@@ -36,7 +36,7 @@ export interface MysqlConnectionOptions extends BaseConnectionOptions, MysqlConn
      * The milliseconds before a timeout occurs during the initial connection to the MySQL server. (Default: 10000)
      * This difference between connectTimeout and acquireTimeout is subtle and is described in the mysqljs/mysql docs
      * https://github.com/mysqljs/mysql/tree/master#pool-options
-     */ 
+     */
     readonly acquireTimeout?: number;
 
     /**

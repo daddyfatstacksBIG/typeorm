@@ -35,7 +35,7 @@ export class DriverUtils {
 
     /**
      * Builds column alias from given alias name and column name.
-     * 
+     *
      * If alias length is greater than the limit (if any) allowed by the current
      * driver, replaces it with a hashed string.
      *

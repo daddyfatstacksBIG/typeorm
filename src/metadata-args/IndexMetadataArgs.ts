@@ -34,7 +34,7 @@ export interface IndexMetadataArgs {
      * Works only in MySQL.
      */
     fulltext?: boolean;
-    
+
     /**
      * Fulltext parser.
      * Works only in MySQL.

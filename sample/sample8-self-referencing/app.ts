@@ -15,10 +15,10 @@ const options: ConnectionOptions = {
 
 createConnection(options).then(connection => {
     let categoryRepository = connection.getRepository(Category);
-    
+
     let category1 = new Category();
     category1.name = "category #1";
-    
+
     let mainCategory = new Category();
     mainCategory.manyCategories = [];
     mainCategory.name = "main category";

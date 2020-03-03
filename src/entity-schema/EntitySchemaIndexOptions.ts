@@ -38,7 +38,7 @@ export interface EntitySchemaIndexOptions {
      * Works only in MySQL.
      */
     fulltext?: boolean;
-    
+
     /**
      * Fulltext parser.
      * Works only in MySQL.

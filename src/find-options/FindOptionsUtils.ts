@@ -180,7 +180,7 @@ export class FindOptionsUtils {
                 qb.setLock(options.lock.mode);
             }
         }
-        
+
         if (options.withDeleted) {
             qb.withDeleted();
         }
