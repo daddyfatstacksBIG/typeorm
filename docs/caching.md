@@ -1,8 +1,10 @@
 # Caching queries
 
-You can cache results selected by these `QueryBuilder` methods: `getMany`, `getOne`, `getRawMany`, `getRawOne`  and `getCount`.
+You can cache results selected by these `QueryBuilder` methods: `getMany`,
+`getOne`, `getRawMany`, `getRawOne` and `getCount`.
 
- You can also cache results selected by these `Repository` methods: `find`, `findAndCount`, `findByIds`, and `count`.
+You can also cache results selected by these `Repository` methods: `find`,
+`findAndCount`, `findByIds`, and `count`.
 
 To enable caching you need to explicitly enable it in your connection options:
 
@@ -16,8 +18,8 @@ To enable caching you need to explicitly enable it in your connection options:
 }
 ```
 
-When you enable cache for the first time,
-you must synchronize your database schema (using CLI, migrations or the `synchronize` connection option).
+When you enable cache for the first time, you must synchronize your database
+schema (using CLI, migrations or the `synchronize` connection option).
 
 Then in `QueryBuilder` you can enable query cache for any query:
 
@@ -30,21 +32,21 @@ const users = await connection
 ```
 
 Equivalent `Repository` query:
+
 ```typescript
-const users = await connection
-    .getRepository(User)
-    .find({
-        where: { isAdmin: true },
-        cache: true
-    });
+const users = await connection.getRepository(User).find({
+    where: { isAdmin: true },
+    cache: true
+});
 ```
 
-This will execute a query to fetch all admin users and cache the results.
-Next time you execute the same code, it will get all admin users from the cache.
-Default cache lifetime is equal to `1000 ms`, e.g. 1 second.
-This means the cache will be invalid 1 second after the query builder code is called.
-In practice, this means that if users open the user page 150 times within 3 seconds, only three queries will be executed during this period.
-Any users inserted during the 1 second cache window won't be returned to the user.
+This will execute a query to fetch all admin users and cache the results. Next
+time you execute the same code, it will get all admin users from the cache.
+Default cache lifetime is equal to `1000 ms`, e.g. 1 second. This means the
+cache will be invalid 1 second after the query builder code is called. In
+practice, this means that if users open the user page 150 times within 3
+seconds, only three queries will be executed during this period. Any users
+inserted during the 1 second cache window won't be returned to the user.
 
 You can change cache time manually via `QueryBuilder`:
 
@@ -59,12 +61,10 @@ const users = await connection
 Or via `Repository`:
 
 ```typescript
-const users = await connection
-    .getRepository(User)
-    .find({
-        where: { isAdmin: true },
-        cache: 60000
-    });
+const users = await connection.getRepository(User).find({
+    where: { isAdmin: true },
+    cache: 60000
+});
 ```
 
 Or globally in connection options:
@@ -92,29 +92,27 @@ const users = await connection
 ```
 
 Or with `Repository`:
+
 ```typescript
-const users = await connection
-    .getRepository(User)
-    .find({
-        where: { isAdmin: true },
-        cache: {
-            id: "users_admins",
-            milliseconds: 25000
-        }
-    });
+const users = await connection.getRepository(User).find({
+    where: { isAdmin: true },
+    cache: {
+        id: "users_admins",
+        milliseconds: 25000
+    }
+});
 ```
 
-This gives you granular control of your cache,
-for example, clearing cached results when you insert a new user:
+This gives you granular control of your cache, for example, clearing cached
+results when you insert a new user:
 
 ```typescript
 await connection.queryResultCache.remove(["users_admins"]);
 ```
 
-
-By default, TypeORM uses a separate table called `query-result-cache` and stores all queries and results there.
-Table name is configurable, so you could change its by give the value in the tableName property.
-Example:
+By default, TypeORM uses a separate table called `query-result-cache` and stores
+all queries and results there. Table name is configurable, so you could change
+its by give the value in the tableName property. Example:
 
 ```typescript
 {
@@ -129,9 +127,9 @@ Example:
 }
 ```
 
-If storing cache in a single database table is not effective for you,
-you can change the cache type to "redis" or "ioredis" and TypeORM will store all cached records in redis instead.
-Example:
+If storing cache in a single database table is not effective for you, you can
+change the cache type to "redis" or "ioredis" and TypeORM will store all cached
+records in redis instead. Example:
 
 ```typescript
 {
@@ -149,10 +147,14 @@ Example:
 }
 ```
 
-"options" can be [node_redis specific options](https://github.com/NodeRedis/node_redis#options-object-properties) or [ioredis specific options](https://github.com/luin/ioredis/blob/master/API.md#new-redisport-host-options) depending on what type you're using.
+"options" can be
+[node_redis specific options](https://github.com/NodeRedis/node_redis#options-object-properties)
+or
+[ioredis specific options](https://github.com/luin/ioredis/blob/master/API.md#new-redisport-host-options)
+depending on what type you're using.
 
-
-In case you want to connect to a redis-cluster using IORedis's cluster functionality, you can do that as well by doing the following:
+In case you want to connect to a redis-cluster using IORedis's cluster
+functionality, you can do that as well by doing the following:
 
 ```typescript
 {
@@ -188,7 +190,8 @@ In case you want to connect to a redis-cluster using IORedis's cluster functiona
 }
 ```
 
-Note that, you can still use options as first argument of IORedis's cluster constructor.
+Note that, you can still use options as first argument of IORedis's cluster
+constructor.
 
 ```typescript
 {
@@ -214,7 +217,9 @@ Note that, you can still use options as first argument of IORedis's cluster cons
 }
 ```
 
-If none of the built-in cache providers satisfy your demands, then you can also specify your own cache provider by using a `provider` factory function which needs to return a new object that implements the `QueryResultCache` interface:
+If none of the built-in cache providers satisfy your demands, then you can also
+specify your own cache provider by using a `provider` factory function which
+needs to return a new object that implements the `QueryResultCache` interface:
 
 ```typescript
 class CustomQueryResultCache implements QueryResultCache {
