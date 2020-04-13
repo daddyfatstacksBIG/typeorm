@@ -15,7 +15,7 @@ TypeORM was tested on Node.js version 4 and above.
 
 You can use [sql.js](https://github.com/kripken/sql.js) in the browser.
 
-**Webpack configuration**   
+**Webpack configuration**
 In the `browser` folder the package also includes a version compiled as a ES2015
 module. If you want to use a different loader this is the point to start. Prior
 to TypeORM 0.1.7, the package is setup in a way that loaders like webpack will
@@ -51,7 +51,7 @@ createConnection({
 });
 ```
 
-**Don't forget to include reflect-metadata**   
+**Don't forget to include reflect-metadata**
 In your main html page, you need to include reflect-metadata:
 
 ```html

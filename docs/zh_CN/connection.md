@@ -107,7 +107,7 @@ const connection = getConnection();
 const secondConnection = getConnection("test2-connection");
 ```
 
-应避免额外创建 classes/services 来存储和管理连接。此功能已嵌入到 TypeORM 中 - 无
+应避免额外创建 classes/services 来存储和管理连接。此功能已嵌入到 TypeORM 中 - �
 需过度工程并创建无用的抽象。
 
 ## 使用`ConnectionManager`
